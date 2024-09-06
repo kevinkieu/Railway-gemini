@@ -12,8 +12,8 @@ gemini_pro_player_dict = {}
 default_model_dict = {}
 
 error_info="⚠️⚠️⚠️\nSomething went wrong !\nplease try to change your prompt or contact the admin !"
-before_generate_info="Đợi tí nha..."
-download_pic_notify="🤖Loading picture🤖"
+before_generate_info="🤖:Tớ đang suy nghĩ..."
+download_pic_notify="🤖Đang tải hình lên...🤖"
 
 n = 70  #Number of historical records to keep
 
