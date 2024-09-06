@@ -15,7 +15,7 @@ error_info="⚠️⚠️⚠️\nSomething went wrong !\nplease try to change you
 before_generate_info="🤖Đợi chút nha...🤖"
 download_pic_notify="🤖Loading picture🤖"
 
-n = 30  #Number of historical records to keep
+n = 70  #Number of historical records to keep
 
 generation_config = {
     "temperature": 1,
