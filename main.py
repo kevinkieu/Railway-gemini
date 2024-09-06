@@ -12,7 +12,7 @@ gemini_pro_player_dict = {}
 default_model_dict = {}
 
 error_info="⚠️⚠️⚠️\nSomething went wrong !\nplease try to change your prompt or contact the admin !"
-before_generate_info="🤖Đợi chút...🤖"
+before_generate_info="🤖Đợi chút nha...🤖"
 download_pic_notify="🤖Loading picture🤖"
 
 n = 30  #Number of historical records to keep
@@ -20,7 +20,7 @@ n = 30  #Number of historical records to keep
 generation_config = {
     "temperature": 1,
     "top_p": 1,
-    "top_k": 34,
+    "top_k": 35,
     "max_output_tokens": 2048,
 }
 
