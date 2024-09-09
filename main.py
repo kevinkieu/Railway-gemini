@@ -156,9 +156,10 @@ async def make_new_gemini_pro_convo():
 
     def create_convo():
         model = genai.GenerativeModel(
-            model_name="gemini-1.5-pro-latest",
+            model_name="gemini-1.5-pro-exp-0827",
             generation_config=generation_config,
             safety_settings=safety_settings,
+            system_instruction=gemini_system_prompt,
         )
         convo = model.start_chat()
         return convo
@@ -242,7 +243,7 @@ async def main():
             telebot.types.BotCommand("start", "Start"),
             telebot.types.BotCommand("gemini", "using gemini-1.5-flash"),
             telebot.types.BotCommand("gemini_pro", "using gemini-1.5-pro"),
-            telebot.types.BotCommand("clear", "Clear all history"),
+            telebot.types.BotCommand("clear", "Xoá hết dĩ vãng xưa"),
             telebot.types.BotCommand("switch","switch default model")
         ],
     )
@@ -252,7 +253,7 @@ async def main():
     @bot.message_handler(commands=["start"])
     async def gemini_handler(message: Message):
         try:
-            await bot.reply_to( message , escape("Chào bạn. Bạn muốn hỏi gì nào. \nFor example: `Who is john lennon?`"), parse_mode="MarkdownV2")
+            await bot.reply_to( message , escape("Chào bạn. Bạn muốn hỏi gì nào. \nThí dụ: `Cho tôi thông tin về Hồ Chủ tịch?`"), parse_mode="MarkdownV2")
         except IndexError:
             await bot.reply_to(message, error_info)
 
@@ -291,14 +292,14 @@ async def main():
         # Check if the player is already in default_model_dict.
         if str(message.from_user.id) not in default_model_dict:
             default_model_dict[str(message.from_user.id)] = False
-            await bot.reply_to( message , "Now you are using gemini-1.5-pro")
+            await bot.reply_to( message , "Đang dùng gemini-1.5-pro")
             return
         if default_model_dict[str(message.from_user.id)] == True:
             default_model_dict[str(message.from_user.id)] = False
-            await bot.reply_to( message , "Now you are using gemini-1.5-pro")
+            await bot.reply_to( message , "Đang dùng gemini-1.5-pro")
         else:
             default_model_dict[str(message.from_user.id)] = True
-            await bot.reply_to( message , "Now you are using gemini-1.5-flash")
+            await bot.reply_to( message , "Đang dùng gemini-1.5-flash")
         
     
     
